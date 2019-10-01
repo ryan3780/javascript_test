@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Homework-Array</title>
   </head>
@@ -31,7 +36,7 @@
           }
         }
         sixTimes();
-        const newArr = [...new Set(arr)];
+        const newArr = [...new Set(arr)]; // 이거를 사용하면, 함수내에서 중복을 제거할 수 있지 않나요??
         const str = newArr.toString();
         const splitStr = str.split(",");
         const joinElement = splitStr.join(" , ");
@@ -69,6 +74,109 @@
         });
         document.write("[" + xx + "]");
       </script>
+      <hr />
+    </div>
+    <div class="container">
+      <div class="row">
+        <h2>Lotto</h2>
+        <script>
+          const lotArr = [];
+
+          function compareNum(a, b) {
+            return a - b;
+          }
+
+          function makeNum() {
+            for (j = 0; j < 6; j++) {
+              for (i = 0; i < 6; i++) {
+                const randomNum = Math.floor(Math.random() * 45 + 1);
+                lotArr.push(randomNum);
+              }
+            }
+          }
+          makeNum();
+
+          const blank = lotArr.map(element => {
+            return " " + element + " ";
+          });
+
+          const a = blank.slice(0, 6);
+          const b = blank.slice(6, 12);
+          const c = blank.slice(12, 18);
+          const d = blank.slice(18, 24);
+          const e = blank.slice(24, 30);
+
+          // check(a);
+          // console.log(a);
+
+          function change(arr) {
+            const a = arr.sort(compareNum);
+            const aa = a.toString();
+            const aaa = aa.split(",").join("/");
+            return document.write(aaa);
+          }
+
+          function check(arr) {
+            const base = [...new Set(arr)];
+            console.log(base);
+            if (base.length !== 6) {
+              const random = " " + Math.floor(Math.random() * 45 + 1) + " ";
+              const chRandom = random.toString();
+              const newNum = [...base, chRandom];
+              const lotto = [...newNum];
+              if (lotto.length === 5) {
+                const sRandom = " " + Math.floor(Math.random() * 45 + 1) + " ";
+                const str = sRandom.toString();
+                const realLotto = [...lotto, str];
+                return check(realLotto);
+              }
+              return console.log(lotto) + check(lotto);
+            } else {
+              const chbase = [...base];
+              console.log(chbase);
+              return change(chbase);
+            }
+          }
+        </script>
+        <div class="cen">
+          <h3>
+            A :
+            <script>
+              check(a);
+            </script>
+          </h3>
+          <h3>
+            B :<script>
+              check(b);
+            </script>
+          </h3>
+          <h3>
+            C :<script>
+              check(c);
+            </script>
+          </h3>
+          <h3>
+            D :<script>
+              check(d);
+            </script>
+          </h3>
+          <h3>
+            E :<script>
+              check(e);
+            </script>
+          </h3>
+        </div>
+        <div class="cen">
+          <button onclick="reload();" type="button" class="btn btn-success">
+            새로 고침
+          </button>
+          <script>
+            function reload() {
+              location.reload();
+            }
+          </script>
+        </div>
+      </div>
     </div>
   </body>
 </html>
