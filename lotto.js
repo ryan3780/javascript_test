@@ -14,36 +14,44 @@ function makeNum() {
 }
 makeNum();
 
-// console.log(lotArr);
+const blank = lotArr.map(element => {
+  return " " + element + " ";
+});
 
-const A = lotArr.slice(0, 6);
-const AA = A.sort(compareNum);
-const B = lotArr.slice(6, 12);
-const BB = B.sort(compareNum);
-const C = lotArr.slice(12, 18);
-const CC = C.sort(compareNum);
-const D = lotArr.slice(18, 24);
-const DD = D.sort(compareNum);
-const E = lotArr.slice(24, 30);
-const EE = E.sort(compareNum);
-console.log(AA, BB, CC, DD, EE);
+const a = blank.slice(0, 6);
+const b = blank.slice(6, 12);
+const c = blank.slice(12, 18);
+const d = blank.slice(18, 24);
+const e = blank.slice(24, 30);
+
+// check(a);
+// console.log(a);
 
 function change(arr) {
   const a = arr.sort(compareNum);
   const aa = a.toString();
-  const aaa = aa.split(",").join("");
+  const aaa = aa.split(",").join("/");
+  return document.write(aaa);
 }
 
-change(A);
-console.log(A);
-
-const mySet = [1, 2, 3, 4, 5, 6];
-const mm = [...new Set(mySet)];
-const aa = [...mm];
-function ch(arr) {
-  arr = aa;
+function check(arr) {
+  const base = [...new Set(arr)];
+  console.log(base);
+  if (base.length !== 6) {
+    const random = " " + Math.floor(Math.random() * 45 + 1) + " ";
+    const chRandom = random.toString();
+    const newNum = [...base, chRandom];
+    const lotto = [...newNum];
+    if (lotto.length === 5) {
+      const sRandom = " " + Math.floor(Math.random() * 45 + 1) + " ";
+      const str = sRandom.toString();
+      const realLotto = [...lotto, str];
+      return check(realLotto);
+    }
+    return console.log(lotto) + check(lotto);
+  } else {
+    const chbase = [...base];
+    console.log(chbase);
+    return change(chbase);
+  }
 }
-
-console.log(aa);
-aa.splice(aa.indexOf(1), 1, mySet);
-console.log(aa);
