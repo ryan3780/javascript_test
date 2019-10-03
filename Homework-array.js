@@ -24,14 +24,14 @@ sixTimes(arr);
 const setArr = [...new Set(arr)];
 
 // Set이 되버린 arr을 다시 Array로 변경
-const arrayArr = [...setArr];
+const uniqueArr = [...setArr];
 console.log(arr);
-console.log(arrayArr);
+console.log(uniqueArr);
 
 // 0 ~ 5까지의 index를 자르기
-const zeroToFive = arrayArr.slice(0, 5);
+const zeroToFive = uniqueArr.slice(0, 5);
 console.log(zeroToFive);
 
 // 3 ~ 7까지의 index를 자르기
-const threeToSeven = arrayArr.slice(3, 7);
+const threeToSeven = uniqueArr.slice(3, 7);
 console.log(threeToSeven);

@@ -36,7 +36,7 @@
           }
         }
         sixTimes();
-        const newArr = [...new Set(arr)]; // 이거를 사용하면, 함수내에서 중복을 제거할 수 있지 않나요??
+        const newArr = [...new Set(arr)]; // 중복을 제거 하는 함수를 따로 만들어야 될거 같은데, 어떤 방법이 좋을까요??
         const str = newArr.toString();
         const splitStr = str.split(",");
         const joinElement = splitStr.join(" , ");
@@ -81,30 +81,31 @@
         <h2>Lotto</h2>
         <script src="lotto.js"></script>
         <div class="cen">
+          <table class="table">
           <h3>
             A :
             <script>
-              check(a);
+              check(lottoNumberA);
             </script>
           </h3>
           <h3>
             B :<script>
-              check(b);
+              check(lottoNumberB);
             </script>
           </h3>
           <h3>
             C :<script>
-              check(c);
+              check(lottoNumberC);
             </script>
           </h3>
           <h3>
             D :<script>
-              check(d);
+              check(lottoNumberD);
             </script>
           </h3>
           <h3>
             E :<script>
-              check(e);
+              check(lottoNumberE);
             </script>
           </h3>
         </div>
