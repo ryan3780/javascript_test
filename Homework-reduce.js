@@ -1,6 +1,6 @@
-const arr = [];
-// console.log(Object.prototype.toString.call(arr));
-// console.log(typeof arr);
+const arr2 = [];
+// console.log(Object.prototype.toString.call(arr2));
+// console.log(typeof arr2);
 
 function compareNum(a, b) {
   return a - b;
@@ -18,11 +18,11 @@ function makeArrayElement(array) {
   }
 }
 
-makeArrayElement(arr);
-console.log("랜덤 숫자 배열 : " + arr);
+makeArrayElement(arr2);
+console.log("랜덤 숫자 배열 : " + arr2);
 
-// Array.from() 메서드는 유사 배열 객체(array-like object)나반복 가능한 객체(iterable object)를 얕게 복사해 새로운Array 객체를 만듭니다.
-const removeOverlap = Array.from(new Set(arr));
+// Array.from() 메서드는 유사 배열 객체(arr2ay-like object)나반복 가능한 객체(iterable object)를 얕게 복사해 새로운Array 객체를 만듭니다.
+const removeOverlap = Array.from(new Set(arr2));
 console.log("중복 제거한 랜덤 숫자 배열 : " + removeOverlap);
 // console.log(Object.prototype.toString.call(removeOverlap));
 // console.log(typeof removeOverlap);
@@ -63,18 +63,18 @@ forSum(removeOverlap);
 console.log(
   "---------------------------------------------------------------------------"
 );
-const str = `abcde`;
-// console.log(typeof str);
+const str2 = `abcde`;
+// console.log(typeof str2);
 const n = 134;
-// console.log(str);
+// console.log(str2);
 
-// Array의 프로퍼티를 빌려서 str의 값에 "-"을 추가하는 함수
+// Array의 프로퍼티를 빌려서 str2의 값에 "-"을 추가하는 함수
 function sumStr(str) {
   const plusHyphen = Array.prototype.join.call(str, "-");
   console.log("Join() 메서드로 문자열에 '-'을 추가한 모습 = " + plusHyphen);
 }
 
-sumStr(str);
+sumStr(str2);
 
 // for...in 루프를 사용하여, str의 값에 "-"추가하는 함수
 function forInStr(str) {
@@ -93,8 +93,8 @@ function forInStr(str) {
         fullText.slice(0, -1)
     );
   } else {
-    return console.log("this is not string!");
+    return console.log("this is not str2ing!");
   }
 }
 
-forInStr(str);
+forInStr(str2);
