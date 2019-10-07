@@ -1,135 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Homework-Array</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="row">
-      <div class="col-md-6">
-        <p style="text-align: center">
-          <strong> Array & RandomNumber => sort and slice</strong>
-        </p>
-        <hr />
-        <div class="solve">
-          <p><strong>현재 Array 원소</strong></p>
+        <div class="col-md-6">
+            <p style="text-align: center">
+                <strong> Array & RandomNumber => sort and slice</strong>
+            </p>
+            <hr />
+            <div class="solve">
+                <p><strong>현재 Array 원소</strong></p>
 
-          <script>
-            const arr = [];
-            function compareNum(a, b) {
-              return a - b;
-            }
-            function sixTimes() {
-              if (typeof arr !== "undefined") {
-                // console.log("Starting");
-                for (i = 0; i < 10; i++) {
-                  const randomNum = Math.floor(Math.random() * 10);
-                  arr.push(randomNum);
-                }
-                arr.sort(compareNum);
-              }
-            }
-            sixTimes();
-            const newArr = [...new Set(arr)]; // 중복을 제거 하는 함수를 따로 만들어야 될거 같은데, 어떤 방법이 좋을까요??
-            const str = newArr.toString();
-            const splitStr = str.split(",");
-            const joinElement = splitStr.join(" , ");
-            document.write("[ " + joinElement + " ]");
-          </script>
+                <script>
+                    const arr = [];
 
-          <p>
-            <strong>
+                    function compareNum(a, b) {
+                        return a - b;
+                    }
+
+                    function sixTimes() {
+                        if (typeof arr !== "undefined") {
+                            // console.log("Starting");
+                            for (i = 0; i < 10; i++) {
+                                const randomNum = Math.floor(Math.random() * 10);
+                                arr.push(randomNum);
+                            }
+                            arr.sort(compareNum);
+                        }
+                    }
+
+                    sixTimes();
+                    const newArr = [...new Set(arr)]; // 중복을 제거 하는 함수를 따로 만들어야 될거 같은데, 어떤 방법이 좋을까요??
+                    const str = newArr.toString();
+                    const splitStr = str.split(",");
+                    const joinElement = splitStr.join(" , ");
+                    document.write("[ " + joinElement + " ]");
+                </script>
+
+                <p>
+                    <strong>
               Slice(0, 5)
             </strong>
-          </p>
-          <script>
-            const plusBlank = newArr.map(element => {
-              return " " + element + " ";
-            });
-            const zeroToFive = plusBlank.slice(0, 5);
+                </p>
+                <script>
+                    const plusBlank = newArr.map(element => {
+                        return " " + element + " ";
+                    });
+                    const zeroToFive = plusBlank.slice(0, 5);
 
-            document.write("[" + zeroToFive + "]");
-          </script>
-          <p>
-            <strong>Slice(3, 7)</strong>
-          </p>
-          <script>
-            const threeToSeven = plusBlank.slice(3, 7);
-            document.write("[" + threeToSeven + "]");
-          </script>
+                    document.write("[" + zeroToFive + "]");
+                </script>
+                <p>
+                    <strong>Slice(3, 7)</strong>
+                </p>
+                <script>
+                    const threeToSeven = plusBlank.slice(3, 7);
+                    document.write("[" + threeToSeven + "]");
+                </script>
 
-          <script>
-            const xx = newArr.map(x => {
-              return " " + x * x + " ";
-            });
-            document.write("[" + xx + "]");
-          </script>
-          <hr />
-        </div>
+                <script>
+                    const xx = newArr.map(x => {
+                        return " " + x * x + " ";
+                    });
+                    document.write("[" + xx + "]");
+                </script>
+                <hr />
+            </div>
 
-        <h2>Lotto</h2>
-        <script src="lotto.js"></script>
-        <div class="cen">
-          <h3>
-            A :
-            <script>
-              check(lottoNumberA);
-            </script>
-          </h3>
-          <h3>
-            B :<script>
-              check(lottoNumberB);
-            </script>
-          </h3>
-          <h3>
-            C :<script>
-              check(lottoNumberC);
-            </script>
-          </h3>
-          <h3>
-            D :<script>
-              check(lottoNumberD);
-            </script>
-          </h3>
-          <h3>
-            E :<script>
-              check(lottoNumberE);
-            </script>
-          </h3>
-        </div>
-        <div class="cen">
-          <button onclick="reload();" type="button" class="btn btn-success">
+            <h2>Lotto</h2>
+            <script src="lotto.js"></script>
+            <div class="cen">
+                <h3>
+                    A :
+                    <script>
+                        check(lottoNumberA);
+                    </script>
+                </h3>
+                <h3>
+                    B :
+                    <script>
+                        check(lottoNumberB);
+                    </script>
+                </h3>
+                <h3>
+                    C :
+                    <script>
+                        check(lottoNumberC);
+                    </script>
+                </h3>
+                <h3>
+                    D :
+                    <script>
+                        check(lottoNumberD);
+                    </script>
+                </h3>
+                <h3>
+                    E :
+                    <script>
+                        check(lottoNumberE);
+                    </script>
+                </h3>
+            </div>
+            <div class="cen">
+                <button onclick="reload();" type="button" class="btn btn-success">
             새로 고침
           </button>
-          <script>
-            function reload() {
-              location.reload();
-            }
-          </script>
+                <script>
+                    function reload() {
+                        location.reload();
+                    }
+                </script>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <p style="text-align: center">
-          <strong>
+        <div class="col-md-6">
+            <p style="text-align: center">
+                <strong>
             Reduce & Regex
           </strong>
-        </p>
-        <hr />
-        <script src="Homework-reduce.js"></script>
-        <div class="cen">
-          <script>
-            document.write(arr2);
-          </script>
+            </p>
+            <hr />
+            <script src="Homework-reduce.js"></script>
+            <div class="cen">
+                <p><strong>중복 제거한 배열의 원소들</strong></p>
+                <script>
+                    arrayToString(removeOverlap);
+                </script>
+                <p>
+                    <strong>Reduce() 메서드로 중복 제거한 랜덤 숫자 배열의 합 = <script>sum(removeOverlap);</script></strong>
+                </p>
+                <p>
+                    <strong>For...in으로 랜덤 숫자 배열의 합 = <script>forInSum(removeOverlap);</script></strong>
+                </p>
+                <p>
+                    <strong>For으로 랜덤 숫자 배열의 합 = <script>forSum(removeOverlap);</script></strong>
+                </p>
+                <hr />
+                <p><strong>변수 이름 : str2 / 값 : abced</strong></p>
+                <p>
+                    <strong>Join() 메서드로 문자열에 '-'을 추가한 모습 = <script>sumStr(str2);</script></strong>
+                </p>
+                <p>
+                    <strong>For...in 루프로 문자열에 '-'을 추가한 모습 = <script>forInStr(str2);</script></strong>
+                </p>
+                <hr/>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
