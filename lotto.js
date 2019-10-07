@@ -37,7 +37,7 @@ function change(arr) {
 // 필요 없는 부분이 있지 않나요?? 2번씩 체크를 한다거나??
 function check(arr) {
   const base = [...new Set(arr)];
-  console.log(base);
+  // console.log(base);
 
   // 중복으로 인해서, 배열의 원소가 모자르면 채우는 조건문
   if (base.length !== 6) {
@@ -51,10 +51,10 @@ function check(arr) {
       const realLotto = [...lotto, str];
       return check(realLotto);
     }
-    return console.log(lotto) + check(lotto);
+    return check(lotto);
   } else {
     const chbase = [...base];
-    console.log(chbase);
+    // console.log(chbase);
     return change(chbase);
   }
 }
