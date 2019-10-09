@@ -5,7 +5,8 @@ function addToDo() {
   article.className = "card";
   const header = document.createElement("header");
   article.append(header);
-  header.innerText = "test";
+  //   header.className = "delete";
+  header.innerHTML = `<button class = delete onclick=deleteListElement()>delete</button>`;
   const div = document.createElement("div");
   article.append(div);
   div.className = "detail";
