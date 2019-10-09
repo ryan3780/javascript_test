@@ -1,88 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Homework</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="row">
-        <div class="col-md-3">
-            <section class="list">
-                <header>To Do</header>
-                <article class="card">
-                    <header>Make Login Page</header>
-                    <div class="detail">Using Regex()</div>
-                </article>
-                <article class="card">
-                    <header>Update this box</header>
-                    <div class="detail">Control JS</div>
-                </article>
-                <article class="card">
-                    <header>Done에 있으면, 'detail' = Finish 바로 나오게 하기</header>
-                    <div class="detail">make JS file & html</div>
-                </article>
-            </section>
-        </div>
-        <div class="col-md-3">
-            <section class="list">
-                <header>Doing</header>
+      <div class="col-md-3">
+        <section class="list">
+          <header id="todo">
+            To Do <button onclick="addToDo()">+</button
+            ><button onclick="removeToDo()">-</button>
+          </header>
 
-                <article class="card">
-                    <header>Update Page</header>
-                    <div class="detail">make JS file & html</div>
-                </article>
+          <article class="card">
+            <header>Make Login Page</header>
+            <div class="detail">Using Regex()</div>
+          </article>
+          <article class="card">
+            <header>Update this box</header>
+            <div class="detail">Control JS</div>
+          </article>
+          <article class="card">
+            <header>Done에 있으면, 'detail' = Finish 바로 나오게 하기</header>
+            <div class="detail">make JS file & html</div>
+          </article>
+        </section>
+      </div>
+      <div class="col-md-3">
+        <section class="list">
+          <header>Doing</header>
 
-            </section>
-
-        </div>
-        <div class="col-md-3">
-            <section class="list">
-                <header>Done</header>
-                <article class="card">
-                    <header>Make Array(Slice & Sort)</header>
-                    <div class="detail">Finish</div>
-                </article>
-                <article class="card">
-                    <header>Using .reduce()</header>
-                    <div class="detail">Finish</div>
-                </article>
-                <article class="card">
-                    <header>Using Regex</header>
-                    <div class="detail">Finish</div>
-                </article>
-            </section>
-        </div>
-        <div class="col-md-3">
-            <section class="list">
-                <header>Lotto</header>
-                <article class="card" onclick="fadeOut()">
-                    <header>여기다가 로또 번호 바로 볼 수 있게 하기</header>
-
-                </article>
-            </section>
-        </div>
+          <article class="card">
+            <header>Update Page</header>
+            <div class="detail">make JS file & html</div>
+          </article>
+        </section>
+      </div>
+      <div class="col-md-3">
+        <section class="list">
+          <header>Done</header>
+          <article class="card">
+            <header>Make Array(Slice & Sort)</header>
+            <div class="detail">Finish</div>
+          </article>
+          <article class="card">
+            <header>Using .reduce()</header>
+            <div class="detail">Finish</div>
+          </article>
+          <article class="card">
+            <header>Using Regex</header>
+            <div class="detail">Finish</div>
+          </article>
+        </section>
+      </div>
+      <div class="col-md-3">
+        <section class="list">
+          <header>Lotto</header>
+          <article class="card" onclick="fadeOut()">
+            <header>여기다가 로또 번호 바로 볼 수 있게 하기</header>
+          </article>
+        </section>
+      </div>
     </div>
-    <div id="light" class="white_content">이거야! 인생 한방!!
-        <button onclick="fadeIn()">Close</button></div>
+    <div id="light" class="white_content">
+      이거야! 인생 한방!! <button onclick="fadeIn()">Close</button>
+    </div>
     <div id="fade" class="black_overlay"></div>
-</body>
-<script>
+  </body>
+  <script>
     function fadeOut() {
-        document.getElementById('light').style.display = 'block';
-        document.getElementById('fade').style.display = 'block'
+      document.getElementById("light").style.display = "block";
+      document.getElementById("fade").style.display = "block";
     }
 
     function fadeIn() {
-        document.getElementById('light').style.display = 'none';
-        document.getElementById('fade').style.display = 'none'
+      document.getElementById("light").style.display = "none";
+      document.getElementById("fade").style.display = "none";
     }
-</script>
-
+  </script>
+  <script src="addSectionList.js"></script>
+  <script src="removeToDo.js"></script>
 </html>
