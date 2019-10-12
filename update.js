@@ -21,10 +21,11 @@ function changeTag() {
         temp = val;
         console.log(temp);
         const a = document.getElementById("article")
-        const delInput = document.getElementById('header');
-        a.remove(delInput);
-        document.getElementsByClassName('change').value = temp;
-        document.innerHTML = `<header id=header class = change>${temp}</header>`
+        const b = document.createElement("header")
+        a.prepend(b)
+        b.innerHTML = `<header id = header class = change></header>`
+        b.innerText = temp
+        a.removeChild(document.getElementById('input'))
         const c = document.createElement("button");
         c.className = "update";
         c.innerText = "update";
@@ -35,6 +36,8 @@ function changeTag() {
         d.innerText = "delete";
         a.append(d);
         d.addEventListener("click", deleteListElement);
-        // b.innerHTML = `<header>123123123</header>`
+        if (b.value != "") {
+            return console.log("same")
+        }
     }
 }
