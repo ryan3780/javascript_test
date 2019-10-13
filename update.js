@@ -23,7 +23,8 @@ function changeTag() {
         const a = document.getElementById("article")
         const b = document.createElement("header")
         a.prepend(b)
-        b.innerHTML = `<header id = header class = change></header>`
+        b.id = "header"
+        b.className = 'change'
         b.innerText = temp
         a.removeChild(document.getElementById('input'))
         const c = document.createElement("button");
@@ -36,8 +37,8 @@ function changeTag() {
         d.innerText = "delete";
         a.append(d);
         d.addEventListener("click", deleteListElement);
-        if (b.value != "") {
-            return console.log("same")
+        if (b.value === temp) {
+            console.log("same")
         }
     }
 }

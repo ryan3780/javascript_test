@@ -4,17 +4,19 @@ function addToDo() {
     todo.appendChild(article);
     article.className = "card";
     article.id = "article"
-    const header = document.createElement("header");
-    article.append(header);
-    header.id = "header"
-    header.className = "change"
+    const input = document.createElement("input");
+    article.append(input);
+    input.id = "input"
+    input.className = "dodo"
+    input.onkeydown = changeTag();
+    input.value = "Do that thang"
+    input.addEventListener('keypress', changeTag)
     const delbtn = document.createElement("button")
     const updateBtn = document.createElement("button");
     updateBtn.className = "update"
     updateBtn.innerText = "update"
     updateBtn.addEventListener("click", updateToDo)
     article.appendChild(updateBtn)
-
     delbtn.className = "delete"
     delbtn.innerText = "delete"
     article.appendChild(delbtn);
