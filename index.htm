@@ -15,70 +15,10 @@
 
   <body>
     <div class="row">
-      <div class="col-md-3">
-        <section class="list" id="todo">
-          <header>To Do <button onclick="addToDo()">+</button></header>
-
-          <article class="card">
-            <header>Make Login Page</header>
-          </article>
-          <article class="card">
-            <header>Update this box</header>
-          </article>
-          <article class="card">
-            <header>Done에 있으면, 'detail' = Finish 바로 나오게 하기</header>
-          </article>
-        </section>
-      </div>
-      <div class="col-md-3">
-        <section class="list">
-          <header>Doing</header>
-
-          <article class="card">
-            <header>Update Page</header>
-          </article>
-        </section>
-      </div>
-      <div class="col-md-3">
-        <section class="list">
-          <header>Done</header>
-          <article class="card">
-            <header>Make Array(Slice & Sort)</header>
-          </article>
-          <article class="card">
-            <header>Using .reduce()</header>
-          </article>
-          <article class="card">
-            <header>Using Regex</header>
-          </article>
-        </section>
-      </div>
-      <div class="col-md-3">
-        <section class="list">
-          <header>Lotto</header>
-          <article class="card" onclick="fadeOut()">
-            <header>여기다가 로또 번호 바로 볼 수 있게 하기</header>
-          </article>
-        </section>
+      <div class="col-md-12" style="text-align:center">
+        table 만들기
       </div>
     </div>
-    <div id="light" class="white_content">
-      이거야! 인생 한방!! <button onclick="fadeIn()">Close</button>
-    </div>
-    <div id="fade" class="black_overlay"></div>
   </body>
-  <script>
-    function fadeOut() {
-      document.getElementById("light").style.display = "block";
-      document.getElementById("fade").style.display = "block";
-    }
-
-    function fadeIn() {
-      document.getElementById("light").style.display = "none";
-      document.getElementById("fade").style.display = "none";
-    }
-  </script>
-  <script src="addSectionList.js"></script>
-  <script src="removeToDo.js"></script>
-  <script src="update.js"></script>
+  <script src="Homework/Hk-obj.js"></script>
 </html>

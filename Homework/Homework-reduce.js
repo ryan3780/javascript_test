@@ -98,7 +98,7 @@ function forInStr(nameStr) {
     }
     return hypened;
   } else {
-    console.log("this is not str2ing!");
+    console.log("this is not string!");
     return [];
   }
 }
