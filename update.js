@@ -16,7 +16,7 @@ function updateToDo() {
 }
 
 function changeTag() {
-  if (event.keyCode == 13) {
+  if (event.keyCode === 13) {
     const val = document.getElementById("input").value;
     temp = val;
     console.log(temp);
@@ -26,7 +26,7 @@ function changeTag() {
     a.prepend(b);
     b.value = temp;
     // const inin = a.querySelector("change");
-    inin.innerHTML = `<header id = header class = change>${temp}</header>`;
+    // inin.innerHTML = `<header id = header class = change>${temp}</header>`;
     const c = document.createElement("button");
     c.className = "update";
     c.innerText = "update";
