@@ -1,25 +1,25 @@
-// .map으로는 도저히 "lee"라는 것을 제외한 새로운 배열을 못 만들겠습니다.
+// 메서드 안에 빈 배열을 선언하면 안되네요;;
 let persons = ["park", "kim", "hong", "lee", "na", "oh", "kang"];
+let exceptedLee = [];
 const newPe = persons.map(function(item) {
-  let exceptedLee = [];
   if (item != "lee") {
-    exceptedLee += item;
+    exceptedLee.push(item);
   }
   return exceptedLee;
 });
 
-console.log(newPe);
+console.log(exceptedLee);
 
 // 빈 배열이 글로벌로 선언되면 정상 작동 하는데, 빈 배열이 메서드 안에 선언되면 안되네요;;
-let ee = [];
-const arr2 = newPe.filter(function(n) {
-  if (typeof n != "object") {
-    ee.push(n);
+let withOutLee = [];
+const arr2 = persons.filter(function(n) {
+  if (n != "lee") {
+    withOutLee.push(n);
   }
-  return ee;
+  return withOutLee;
 });
 
-console.log(ee);
+console.log(withOutLee);
 
 let array = ["park", "kim", "hong", "lee", "na", "oh", "kang"];
 const initialMemo = [];
@@ -38,18 +38,3 @@ array = array.reduce((memo, iteratee) => {
 }, initialMemo);
 
 console.log(array);
-
-const del = persons.map(e => {
-  if (e === "lee") {
-    e = e.replace(/lee/g, null);
-
-    return e;
-  }
-  return e;
-});
-
-console.log(del);
-
-// const deletElm = persons.splice(persons.indexOf("lee"), 1);
-
-// console.log(persons);
