@@ -79,13 +79,16 @@ function addProperty(students) {
   }
 }
 
-// console.log(sumScoreArr);
-
 const addedProperty = addProperty(STUDENTS);
 console.log(addedProperty);
 
+// JSON으로 바꿔보기
 const myJSON = JSON.stringify(STUDENTS);
 console.log(myJSON);
+
+// JSON을 원래 상태로 돌려 놓기
+const myEval = eval(myJSON);
+console.log(myEval);
 
 // 아스키 코드로 객체를 정렬 하는 방법
 // const sortedStudentsById = students.Dev.sort(function(a, b) {
@@ -147,8 +150,110 @@ function compareAvgScore(a, b) {
   return a.avgScore - b.avgScore;
 }
 
+// ID 값으로 정렬 하는 문구
 const sortedStudentsById = STUDENTS.sort(compareId);
 console.log(sortedStudentsById);
 
-const sortedStudentsByAvgScore = STUDENTS.sort(compareAvgScore);
-console.log(sortedStudentsByAvgScore);
+// 평균이 낮은 사람부터 정렬 하는 문구
+// const sortedStudentsByAvgScore = STUDENTS.sort(compareAvgScore);
+// console.log(sortedStudentsByAvgScore);
+
+// ID html에 뿌려주기
+const st1Id = () => {
+  document.write(STUDENTS[0].id);
+};
+
+function st2Id() {
+  return document.write(STUDENTS[1].id);
+}
+function st3Id() {
+  return document.write(STUDENTS[2].id);
+}
+function st4Id() {
+  return document.write(STUDENTS[3].id);
+}
+function st5Id() {
+  return document.write(STUDENTS[4].id);
+}
+
+// 이름 html에 뿌려주기
+function st1Name() {
+  return document.write(STUDENTS[0].name);
+}
+function st2Name() {
+  return document.write(STUDENTS[1].name);
+}
+function st3Name() {
+  return document.write(STUDENTS[2].name);
+}
+function st4Name() {
+  return document.write(STUDENTS[3].name);
+}
+function st5Name() {
+  return document.write(STUDENTS[4].name);
+}
+
+// 영어 성적 html에 뿌려주기
+function st1EngScore() {
+  return document.write(STUDENTS[0].englishScore);
+}
+function st2EngScore() {
+  return document.write(STUDENTS[1].englishScore);
+}
+function st3EngScore() {
+  return document.write(STUDENTS[2].englishScore);
+}
+function st4EngScore() {
+  return document.write(STUDENTS[3].englishScore);
+}
+function st5EngScore() {
+  return document.write(STUDENTS[4].englishScore);
+}
+
+// 역사 성적
+function st1HistoryScore() {
+  return document.write(STUDENTS[0].historyScore);
+}
+function st2HistoryScore() {
+  return document.write(STUDENTS[1].historyScore);
+}
+function st3HistoryScore() {
+  return document.write(STUDENTS[2].historyScore);
+}
+function st4HistoryScore() {
+  return document.write(STUDENTS[3].historyScore);
+}
+function st5HistoryScore() {
+  return document.write(STUDENTS[4].historyScore);
+}
+
+//한국사 성적
+function st1KorHistoryScore() {
+  return document.write(STUDENTS[0].KorHistoryScore);
+}
+function st2KorHistoryScore() {
+  return document.write(STUDENTS[1].KorHistoryScore);
+}
+function st3KorHistoryScore() {
+  return document.write(STUDENTS[2].KorHistoryScore);
+}
+function st4KorHistoryScore() {
+  return document.write(STUDENTS[3].KorHistoryScore);
+}
+function st5KorHistoryScore() {
+  return document.write(STUDENTS[4].KorHistoryScore);
+}
+
+// 영어성적과 역사성적 비교 하는 함수
+function checkEngScoreAndHistoryScore(students) {
+  let arr = [];
+  for (i = 0; i < students.length; i++) {
+    if (students[i].historyScore > students[i].englishScore) {
+      arr.push(students[i]);
+    }
+  }
+  return arr;
+}
+
+const higherHistoryScoreThanEngScore = checkEngScoreAndHistoryScore(STUDENTS);
+console.log(higherHistoryScoreThanEngScore);
