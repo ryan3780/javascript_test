@@ -11,13 +11,15 @@ const newPe = persons.map(function(item) {
 console.log(exceptedLee);
 
 // 빈 배열이 글로벌로 선언되면 정상 작동 하는데, 빈 배열이 메서드 안에 선언되면 안되네요;;
-let withOutLee = [];
-const filteredArr = persons.filter(function(n) {
-  if (n != "lee") {
-    withOutLee.push(n);
-  }
-  return withOutLee;
-});
+(function hhh() {
+  let withOutLee = [];
+  const filteredArr = persons.filter(function(n) {
+    if (n != "lee") {
+      withOutLee.push(n);
+    }
+    return withOutLee;
+  });
+})();
 
 console.log(withOutLee);
 

@@ -55,7 +55,7 @@ const STUDENTS = students.Dev;
 // 학생들 모든 점수를 합하는 함수
 function sumScore(students) {
   let total = [];
-  for (i = 0; i < students.length; i++) {
+  for (let i = 0; i < students.length; i++) {
     total[i] =
       students[i].englishScore +
       students[i].historyScore +
@@ -70,7 +70,7 @@ const sumScoreArr = sumScore(STUDENTS);
 // 원본을 훼손하면 안되지만, 방법을 찾을 수 없기에, 객체에 프로퍼티를 추가하는 함수를 구현
 function addProperty(students) {
   if (students.hasOwnProperty("avgScore") === false) {
-    for (i = 0; i < students.length; i++) {
+    for (let i = 0; i < students.length; i++) {
       students[i].avgScore = parseInt(sumScoreArr[i] / 3);
     }
     return students;
@@ -128,18 +128,18 @@ console.log(myEval);
 
 // students 객체를 'id'값으로 정렬 하는 함수
 function sortingByStudentsId(students) {
-  if (typeof students != "object") {
-    return "";
-  } else {
+  console.log(students.length);
+  if (students.length > 0) {
     // 여기가 왜 실행이 안되는지 궁금합니다.
     students.sort(function(a, b) {
       return a.id < b.id ? -1 : a.id > b.id ? 1 : 0; // 해석이 필요함
     });
   }
+  return students;
 }
 
 const test = sortingByStudentsId(STUDENTS);
-// console.log(test);
+console.log(test);
 
 // 유니코드 포인트 순서로 문자열을 비교하여 정렬하는 함수
 function compareId(a, b) {
@@ -247,7 +247,7 @@ function st5KorHistoryScore() {
 // 영어성적과 역사성적 비교 하는 함수
 function checkEngScoreAndHistoryScore(students) {
   let arr = [];
-  for (i = 0; i < students.length; i++) {
+  for (let i = 0; i < students.length; i++) {
     if (students[i].historyScore > students[i].englishScore) {
       arr.push(students[i]);
     }

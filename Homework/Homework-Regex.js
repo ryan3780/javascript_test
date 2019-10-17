@@ -26,17 +26,19 @@ checkingEmail(mail);
 
 const password = `abcDe!@#`;
 //대,소문자, 특수기호 등 8자리만 허용하는 정규식
-const checkPassword = /^[a-z0-9A-Z\~\!\@\#\%\^\&\*\(\)\{\}\[\,\.\<\>\;\:\'\"\]\\\=\+\_\-]{8}$/g;
-// console.log(checkPassword.test(password)); <----- 이거 사용하면 밑에 함수 에러 납니다. 왜그런가요??
+const passwordRegEx = /^[a-z0-9A-Z\~\!\@\#\%\^\&\*\(\)\{\}\[\,\.\<\>\;\:\'\"\]\\\=\+\_\-]{8}$/g;
+// console.log(passwordRegEx.test(password));
 
 console.log("----------------------------&&-----------------------------");
 
 // 비밀번호 공백 + 형식이 맞는지 체크 하는 함수
 function checkingPassword(pw) {
-  if (pw.search(checkSpace) === -1 && checkPassword.test(pw) === true) {
-    return console.log("사용 가능한 비밀번호 형식입니다 : " + pw);
+  let result = passwordRegEx.test(pw);
+  if (result) {
+    console.log("사용 가능한 비밀번호 형식입니다 : " + pw);
   } else {
-    return console.log("사용 불가한 비밀번호 입니다.");
+    console.log("사용 불가한 비밀번호 입니다.");
   }
 }
-checkingPassword(password);
+checkingPassword(`abcDe!@#`);
+checkingPassword(`abcDe!@#`);

@@ -92,9 +92,10 @@ function forInStr(nameStr) {
     const len = nameStr.length;
 
     for (const index in nameStr) {
-      hypened = nameStr[index];
-      if (index < len) hypened += HYTHEN;
-      // console.log(a);
+      hypened += nameStr[index];
+      if (index < len - 1) {
+        hypened += HYTHEN;
+      }
     }
     return hypened;
   } else {
@@ -103,4 +104,5 @@ function forInStr(nameStr) {
   }
 }
 
-forInStr("abcde");
+const test = forInStr("abcde");
+console.log(`for...in문으로 문자열에 '-'을 추가한 모습 = ` + test);
