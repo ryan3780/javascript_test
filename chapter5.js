@@ -1,5 +1,3 @@
-import { bro } from "./bro";
-
 export function example5() {
   console.log("chapter5.js");
   const rr = document.getElementById("root");
@@ -7,13 +5,13 @@ export function example5() {
   rr.innerText = `hell???`;
   rr.style.textAlign = "center";
   rr.style.marginTop = "50px";
-
   ren();
 }
 
-const userList = studentsList();
+export const userList = studentsList();
+console.log(userList);
 
-function studentsList() {
+export function studentsList() {
   return [
     {
       name: "KIM",
@@ -54,18 +52,18 @@ function studentsList() {
   ];
 }
 
-function compareId(a, b) {
+export function compareId(a, b) {
   return a.id - b.id;
 }
 
-function sortId(list) {
+export function sortId(list) {
   let b = list.sort(compareId);
   return b;
 }
 
-console.log(studentsList());
+// console.log(studentsList());
 
-function makeListToTable(list) {
+export function makeListToTable(list) {
   const table = list.map(
     (elm, index) => `<tr> 
     <td>${index + 1}</td>
@@ -74,7 +72,7 @@ function makeListToTable(list) {
     <td>${elm.englishScore}</td>
     <td>${elm.historyScore}</td>
     <td>${elm.KorHistoryScore}</td>
-    <td><button class="btn btn-danger" onclick='index.deleteUser(${index})'>삭제</button></td>
+    <td><button class="btn btn-danger" onclick=index.bbb(${index})>삭제</button></td>
     </tr>`
   );
   return table;
@@ -85,12 +83,12 @@ export function deleteUser(index) {
   ren();
 }
 
-function render(table) {
+export function render(table) {
   const t = table.join("");
   document.getElementById("test").innerHTML = t;
 }
 
-function ren() {
+export function ren() {
   sortId(userList);
   const ul = makeListToTable(userList);
   render(ul);
