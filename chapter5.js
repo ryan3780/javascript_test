@@ -75,7 +75,7 @@ function makeListToTable(list) {
     <td>${elm.englishScore}</td>
     <td>${elm.historyScore}</td>
     <td>${elm.KorHistoryScore}</td>
-    <td><button onclick='deleteUser(${index})'>삭제</button></td>
+    <td><button class="btn btn-danger" onclick='deleteUser(${index})'>삭제</button></td>
     </tr>`);
     return table
 }
