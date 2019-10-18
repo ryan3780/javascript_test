@@ -1,5 +1,5 @@
 const bro = greeting => {
-  return `${greeting}, bro`;
+    return `${greeting}`;
 };
 
 export { bro };
