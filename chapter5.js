@@ -63,7 +63,7 @@ function sortId(list) {
 }
 
 
-// console.log(studentsList());
+console.log(studentsList());
 
 function makeListToTable(list) {
 
