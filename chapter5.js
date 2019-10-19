@@ -9,7 +9,7 @@ export function example5() {
 }
 
 export const userList = studentsList();
-console.log(userList);
+// console.log(userList);
 
 export function studentsList() {
   return [
