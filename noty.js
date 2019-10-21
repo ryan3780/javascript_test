@@ -35,7 +35,7 @@ function checkTime() {
     if (time === 11) {
         confirm("Sell Stock");
     }
-    if (time === 13) {
+    if (time === 14) {
         confirm("Buy Stock");
     }
 }
@@ -46,7 +46,6 @@ export function checkNoty() {
     const sell = document.getElementById("sell");
     const buy = document.getElementById("buy");
     const chk = document.getElementsByName('agree')
-
 
     if (chk[0].checked === true) {
         sell.style.textDecoration = 'line-through'
@@ -63,9 +62,5 @@ export function checkNoty() {
     if (chk[1].checked === false) {
         buy.style.textDecoration = 'none'
     }
-
-
-
-
 
 }
