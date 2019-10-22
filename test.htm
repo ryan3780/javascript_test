@@ -37,7 +37,25 @@
         });
         //]]>
     </script>
+    <a id="kakao-link-btn" href="javascript:executeURLLink()">
+        <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
+    </a>
 
+    <script>
+        function executeURLLink() {
+            /* 
+            msg, url, appid, appname은 실제 서비스에서 사용하는 정보로 업데이트되어야 합니다. 
+            */
+            kakao.link("talk").send({
+                msg: "카카오링크를 사용하여 메세지를 전달해보세요.; \n 줄바꿈",
+                url: "http://link.kakao.com",
+                appid: "m.kakao.com",
+                appver: "2.0",
+                appname: "카카오",
+                type: "link"
+            });
+        }
+    </script>
 </body>
 
 </html>

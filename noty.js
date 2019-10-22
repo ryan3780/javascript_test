@@ -1,32 +1,40 @@
-const noty = document.getElementById("noty");
-noty.innerHTML = `<table class= 'table table-hover table-striped'>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td id=sell>11시 주식 팔기</td>
-<td>
-<div class="checks etrans" style="bottom: 15px;">
-<input type = checkbox  id="ex_chk3" name = agree onclick = index.ccc() >
-<label for="ex_chk3"></label></input>
-</td>
-</div>
-</tr>
-<tr>
-<td id=buy>14시 주식 팔기</td>
-<td>
-<div class="checks etrans" style="bottom: 15px;">
-<input type = checkbox  id="ex_chk4" name = agree onclick = index.ccc() >
-<label for="ex_chk4"></label></input>
-</td>
-</div>
-</tr>
-</tbody>
-</table>`;
+const notyList = noticeList()
+
+function noticeList() {
+    return ["11시 주식 팔기", '14시 주식 사기']
+}
+
+console.log(notyList)
+
+
+function makeNotyToTable(list) {
+    const table = list.map(
+        (elm, index) => `<tr> 
+    <td id = ${index}>${elm}</td>
+    <td>
+    <div class="checks etrans" style="bottom: 15px;">
+    <input type = checkbox  id="ex_chk${index+3}" name = agree onclick = index.checkNoty(${index}) >
+    <label for="ex_chk${index+3}" ></label>
+    </input>
+    </td>
+    </tr>`
+    );
+    return table;
+}
+
+console.log(makeNotyToTable(notyList))
+
+function showTable(table) {
+    const t = table.join("");
+    document.getElementById("noty").innerHTML = t;
+}
+
+function render() {
+    const list = makeNotyToTable(notyList);
+    showTable(list)
+}
+
+render()
 
 function checkTime() {
     const date = new Date();
@@ -43,24 +51,24 @@ function checkTime() {
 checkTime();
 
 export function checkNoty() {
-    const sell = document.getElementById("sell");
-    const buy = document.getElementById("buy");
+    const zero = document.getElementById('0')
+    const one = document.getElementById('1')
     const chk = document.getElementsByName('agree')
 
     if (chk[0].checked === true) {
-        sell.style.textDecoration = 'line-through'
+        zero.style.textDecoration = 'line-through'
 
     }
     if (chk[0].checked === false) {
-        sell.style.textDecoration = 'none'
+        zero.style.textDecoration = 'none'
     }
 
     if (chk[1].checked === true) {
-        buy.style.textDecoration = 'line-through'
+        one.style.textDecoration = 'line-through'
 
     }
     if (chk[1].checked === false) {
-        buy.style.textDecoration = 'none'
+        one.style.textDecoration = 'none'
     }
 
 }

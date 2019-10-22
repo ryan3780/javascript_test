@@ -6,8 +6,8 @@ import * as noty from "./noty";
 console.log("index.js");
 main();
 
-export const bbb = lib.deleteUser;
-export const ccc = noty.checkNoty;
+export const deleteUser = lib.deleteUser;
+export const checkNoty = noty.checkNoty;
 
 document.querySelector("h1").textContent = bro(`Dev 성적표`);
 document.querySelector("h1").style.textAlign = "center";
