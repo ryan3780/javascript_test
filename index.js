@@ -23,8 +23,11 @@ export function addNum() {
 
 // https://marshall-ku.tistory.com/267 출처 // 예쁜 계산기
 
+
 const input = document.getElementsByClassName("input")[0],
     tmp = document.getElementsByClassName("tmp")[0];
+
+
 
 function i_empty() {
     input.innerText = ""
@@ -88,4 +91,4 @@ function t_empty() {
         });
 })()
 
-//git contributions...다 날아가는데 왜그런거지;;;
+//git contributions...다 날아가는데 왜그런거지;;
