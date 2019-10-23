@@ -8,13 +8,12 @@
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css" />
-
     <title>Dev</title>
 </head>
 
 <body>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <h1></h1>
             <div id="root"></div>
             <table class="table table-hover">
@@ -26,12 +25,12 @@
                     <th>역사 점수</th>
                     <th>한국사 점수</th>
                     <th>삭제 버튼</th>
-                    <th><button onclick="index.addNum()">push</button></th>
+
                 </thead>
                 <tbody id="test"></tbody>
             </table>
             <div style="text-align :center ">
-                <h1 id="clock" style="margin-top : 30px; margin-bottom: 30px"></h1>
+                <h1 id="clock" style="margin-top : 50px; margin-bottom: 50px"></h1>
                 <div class="col-md-4 col-md-offset-4">
                     <table class="table table-hover table-striped">
                         <thead>
@@ -40,9 +39,47 @@
                         </thead>
                         <tbody id="noty"></tbody>
                     </table>
+                    <div id="cal">
+                        <div class="calc">
+                            <div class="input-wrap">
+                                <div class="tmp"></div>
+                                <div class="input"></div>
+                            </div>
+
+                            <div class="btn-wrap">
+
+                                <div class="btn all-clear">AC</div>
+                                <div class="btn clear">C</div>
+                                <div class="btn sign">+/-</div>
+                                <div class="btn amt divide">/</div>
+
+                                <div class="btn number num-7">7</div>
+                                <div class="btn number num-8">8</div>
+                                <div class="btn number num-9">9</div>
+                                <div class="btn amt times">*</div>
+
+                                <div class="btn number num-4">4</div>
+                                <div class="btn number num-5">5</div>
+                                <div class="btn number num-6">6</div>
+                                <div class="btn amt minus">-</div>
+
+                                <div class="btn number num-1">1</div>
+                                <div class="btn number num-2">2</div>
+                                <div class="btn number num-3">3</div>
+                                <div class="btn amt plus">+</div>
+
+                                <div class="btn number num-0">0</div>
+                                <div class="btn dot">.</div>
+                                <div class="btn result">=</div>
+                            </div>
+                        </div>
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    </div>
                 </div>
             </div>
         </div>
+        <button style="margin-top: 20px" class="btn btn-success" onclick="index.addNum()">배경색 변경</button>
         <script src="index.js"></script>
 </body>
 

@@ -4,7 +4,6 @@ function noticeList() {
     return ["11시 주식 팔기", '14시 주식 사기']
 }
 
-console.log(notyList)
 
 
 function makeNotyToTable(list) {
@@ -22,7 +21,6 @@ function makeNotyToTable(list) {
     return table;
 }
 
-console.log(makeNotyToTable(notyList))
 
 function showTable(table) {
     const t = table.join("");
@@ -39,11 +37,10 @@ render()
 function checkTime() {
     const date = new Date();
     const time = date.getHours();
-    //   console.log(typeof time);
     if (time === 11) {
         confirm("Sell Stock");
     }
-    if (time === 14) {
+    if (time === 13) {
         confirm("Buy Stock");
     }
 }
