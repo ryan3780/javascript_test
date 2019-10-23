@@ -1,7 +1,217 @@
 .main {
-  color: red;
+    color: red;
 }
 
-body {
-  background-color: snow;
+.where {
+    display: block;
+    margin: 25px 15px;
+    font-size: 11px;
+    color: #000;
+    text-decoration: none;
+    font-family: verdana;
+    font-style: italic;
+}
+
+.checks {
+    position: relative;
+}
+
+.checks input[type="checkbox"] {
+    /* 실제 체크박스는 화면에서 숨김 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+}
+
+.checks input[type="checkbox"]+label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin-left: 10px;
+}
+
+.checks input[type="checkbox"]+label:before {
+    /* 가짜 체크박스 */
+    margin-left: 10px;
+    content: ' ';
+    display: inline-block;
+    width: 30px;
+    /* 체크박스의 너비를 지정 */
+    height: 30px;
+    /* 체크박스의 높이를 지정 */
+    line-height: 30px;
+    /* 세로정렬을 위해 높이값과 일치 */
+    margin: -2px 8px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    background: #fafafa;
+    border: 3px solid #cacece;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    margin-left: 10px;
+}
+
+.checks input[type="checkbox"]+label:active:before,
+.checks input[type="checkbox"]:checked+label:active:before {
+    margin-left: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.checks input[type="checkbox"]:checked+label:before {
+    /* 체크박스를 체크했을때 */
+    margin-left: 10px;
+    content: '\2714';
+    /* 체크표시 유니코드 사용 */
+    color: #99a1a7;
+    text-shadow: 1px 1px #fff;
+    background: #e9ecee;
+    border-color: #adb8c0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+}
+
+.checks.etrans input[type="checkbox"]+label {
+    padding-left: 50px;
+    margin-left: 10px;
+}
+
+.checks.etrans input[type="checkbox"]+label:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    opacity: .6;
+    box-shadow: none;
+    border-color: #6cc0e5;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+    margin-left: 10px;
+}
+
+.checks.etrans input[type="checkbox"]:checked+label:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    background: transparent;
+    border-color: transparent #6cc0e5 #6cc0e5 transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-left: 10px;
+}
+
+.no-csstransforms .checks.etrans input[type="checkbox"]:checked+label:before {
+    /*content:"\2713";*/
+    content: "\2714";
+    top: 0;
+    left: 0;
+    width: 21px;
+    line-height: 21px;
+    color: #6cc0e5;
+    text-align: center;
+    border: 1px solid #6cc0e5;
+    margin-left: 10px;
+}
+
+@charset "UTF-8";
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent
+}
+
+.calc {
+    width: 90%;
+    max-width: 430px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px;
+    background: linear-gradient(to bottom right, #404040, #0c0c0c);
+}
+
+
+/* input */
+
+.input-wrap {
+    position: relative;
+    width: calc(100% - 4px);
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 0 5px;
+    background: #a1bd66;
+    text-align: right;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5)
+}
+
+.input {
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+}
+
+.tmp {
+    position: absolute;
+    right: 5px;
+    top: 0.25rem;
+    color: grey;
+}
+
+
+/* button */
+
+.btn-wrap {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btn-wrap>div {
+    width: calc(25% - 4px);
+    text-align: center;
+    line-height: 5rem;
+    margin: 2px 0;
+    background: grey;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow .3s
+}
+
+.btn-wrap .num-0 {
+    width: calc(50% - 4px);
+}
+
+.btn-wrap>div[class*=num] {
+    background: #5d5d5f
+}
+
+.btn-wrap>div:hover {
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.btn-wrap .result {
+    background: #f55530
 }

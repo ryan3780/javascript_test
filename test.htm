@@ -1,63 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>API Demo - Kakao JavaScript SDK</title>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 </head>
 
-<body onload="render()">
-    <table>
-        <thead>
-            <th>이름</th>
-            <th>전화번호</th>
-            <th>관리</th>
-        </thead>
-        <tbody id="test"></tbody>
-    </table>
+<body>
+    <a id="kakao-login-btn"></a>
+    <script type='text/javascript'>
+        //<![CDATA[
+        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('bef57bab66bd8c7edc3205b6036ebe2c');
+        // 카카오 로그인 버튼을 생성합니다.
+        Kakao.Auth.createLoginButton({
+            container: '#kakao-login-btn',
+            success: function(authObj) {
+                // 로그인 성공시, API를 호출합니다.
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function(res) {
+                        alert(JSON.stringify(res));
+                    },
+                    fail: function(error) {
+                        alert(JSON.stringify(error));
+                    }
+                });
+            },
+            fail: function(err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        //]]>
+    </script>
+    <a id="kakao-link-btn" href="javascript:executeURLLink()">
+        <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
+    </a>
+
     <script>
-        const userList = reqUserList(); // 함수 선언 전 변수 선언은 호이스팅에 의해 허락됨
-
-        function reqUserList() {
-            return [{
-                name: "윾또막",
-                phone: "010-1111-1111"
-            }, {
-                name: "장꾸",
-                phone: "010-2222-2222"
-            }];
-        }
-
-        function deleteUser(index) {
-            userList.splice(index, 1);
-            console.log(index)
-            render();
-        }
-
-        function makeListToDom(list) {
-            const dom = list.map(
-                (elem, index) => `<tr>
-                    <td>${elem.name}</td>
-                    <td>${elem.phone}</td>
-                    <td><button onclick='deleteUser(${index})'>삭제</button></td>
-                </tr>`
-            );
-
-            return dom;
-        }
-
-        function renderList(dom) {
-            const d = dom.join("");
-
-            document.getElementById("test").innerHTML = d;
-        }
-
-        function render() {
-            const userListDom = makeListToDom(userList);
-
-            renderList(userListDom);
+        function executeURLLink() {
+            /* 
+            msg, url, appid, appname은 실제 서비스에서 사용하는 정보로 업데이트되어야 합니다. 
+            */
+            kakao.link("talk").send({
+                msg: "카카오링크를 사용하여 메세지를 전달해보세요.; \n 줄바꿈",
+                url: "http://link.kakao.com",
+                appid: "m.kakao.com",
+                appver: "2.0",
+                appname: "카카오",
+                type: "link"
+            });
         }
     </script>
 </body>
