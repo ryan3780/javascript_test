@@ -55,3 +55,31 @@ function makeLine() {
     `---------------------------------------------------------------------`
   );
 }
+
+const cl = "국어";
+
+switch (cl) {
+  case "국어":
+    console.log("국어");
+  // break;
+
+  case "영어":
+    console.log("영어");
+    break;
+
+  case "수학":
+    console.log("math");
+    break;
+  default:
+    console.log("nonononono");
+}
+
+function foo() {
+  try {
+    throw 42;
+  } finally {
+    console.log("hell");
+  }
+  console.log("??????");
+}
+console.log(foo());
