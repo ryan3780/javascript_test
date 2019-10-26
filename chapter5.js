@@ -8,11 +8,16 @@ export function example5() {
   ren();
 }
 
+// 오름차순 내림차순 버튼들의 id 값을 가져오는 변수들
 const engUpBtn = document.getElementById("eng-up");
-console.log(engUpBtn);
 const engDownBtn = document.getElementById("eng-down");
-console.log(engDownBtn);
-let temp = 0;
+const historyUpBtn = document.getElementById("his-up");
+const historyDownBtn = document.getElementById("his-down");
+const korHistoryUpBtn = document.getElementById("kor-up");
+const korHistoryDownBtn = document.getElementById("kor-down");
+
+// 오름차순 내림차순 버튼들의 display ='none'을 구분하기 위한 배열
+const idx = [1, 2, 3, 4, 5, 6];
 
 const userList = [
   {
@@ -52,6 +57,53 @@ const userList = [
     KorHistoryScore: 50
   }
 ];
+
+function hideBtn(n) {
+  if (n === 1) {
+    engDownBtn.style.display = "none";
+    historyDownBtn.style.display = "none";
+    historyUpBtn.style.display = "none";
+    korHistoryDownBtn.style.display = "none";
+    korHistoryUpBtn.style.display = "none";
+  }
+  if (n === 2) {
+    engUpBtn.style.display = "none";
+    historyDownBtn.style.display = "none";
+    historyUpBtn.style.display = "none";
+    korHistoryDownBtn.style.display = "none";
+    korHistoryUpBtn.style.display = "none";
+  }
+  if (n === 3) {
+    engUpBtn.style.display = "none";
+    engDownBtn.style.display = "none";
+    historyDownBtn.style.display = "none";
+    korHistoryDownBtn.style.display = "none";
+    korHistoryUpBtn.style.display = "none";
+  }
+  if (n === 4) {
+    engUpBtn.style.display = "none";
+    engDownBtn.style.display = "none";
+    historyUpBtn.style.display = "none";
+    korHistoryDownBtn.style.display = "none";
+    korHistoryUpBtn.style.display = "none";
+  }
+  if (n === 5) {
+    engUpBtn.style.display = "none";
+    engDownBtn.style.display = "none";
+    historyUpBtn.style.display = "none";
+    historyDownBtn.style.display = "none";
+    korHistoryDownBtn.style.display = "none";
+  }
+  if (n === 6) {
+    engUpBtn.style.display = "none";
+    engDownBtn.style.display = "none";
+    historyUpBtn.style.display = "none";
+    historyDownBtn.style.display = "none";
+    korHistoryUpBtn.style.display = "none";
+  } else {
+    return "";
+  }
+}
 
 // 내림차순으로 영어성적으로 정렬하는 함수
 function compareByEngScoreDesc(a, b) {
@@ -112,35 +164,37 @@ function sortKorHistoryScore(list, index) {
 //영어성적을 내림차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showDescEngScore() {
   render(makeListToTable(sortEngScore(userList, 0)));
-  temp = 1;
-  if (temp === 1) {
-    return (engDownBtn.style.display = "none");
-  }
+  hideBtn(idx[0]);
 }
 
 //영어성적을 오름차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showAsceEngScore() {
   render(makeListToTable(sortEngScore(userList, 1)));
+  hideBtn(idx[1]);
 }
 
 //역사성적을 내림차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showDescHistoryScore() {
   render(makeListToTable(sortHistoryScore(userList, 0)));
+  hideBtn(idx[2]);
 }
 
 //역사성적을 오름차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showAsceHistoryScore() {
   render(makeListToTable(sortHistoryScore(userList, 1)));
+  hideBtn(idx[3]);
 }
 
 //역사성적을 내림차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showDescKorHistoryScore() {
   render(makeListToTable(sortKorHistoryScore(userList, 0)));
+  hideBtn(idx[4]);
 }
 
 //역사성적을 오름차순으로 정렬된 성적표로 테이블로 만들어서 보여주는 함수
 export function showAsceKorHistoryScore() {
   render(makeListToTable(sortKorHistoryScore(userList, 1)));
+  hideBtn(idx[5]);
 }
 
 function compareById(a, b) {
@@ -169,7 +223,7 @@ export const makeListToTable = list =>
 
 export function deleteUser(index) {
   userList.splice(index, 1);
-  ren();
+  render(makeListToTable(userList));
 }
 
 export function render(table) {

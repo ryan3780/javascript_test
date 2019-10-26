@@ -25,11 +25,7 @@ document.querySelector("h1").textContent = bro(`Dev 성적표`);
 document.querySelector("h1").style.textAlign = "center";
 
 export function addNum() {
-  if (document.body.style.backgroundColor === "snow") {
-    document.body.style.backgroundColor = "#f3f3f3";
-  } else {
-    document.body.style.backgroundColor = "snow";
-  }
+  location.reload();
 }
 
 // //git contributions...다 날아가는데 왜그런거지;;

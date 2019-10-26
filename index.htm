@@ -43,12 +43,14 @@
             <th>
               역사 점수
               <button
+                id="his-up"
                 class="btn btn-danger"
                 onclick="index.sortedDescHistoryScore()"
               >
                 <i class="up"></i>
               </button>
               <button
+                id="his-down"
                 class="btn btn-primary"
                 onclick="index.sortedAsceHistoryScore()"
               >
@@ -58,12 +60,14 @@
             <th>
               한국사 점수
               <button
+                id="kor-up"
                 class="btn btn-danger"
                 onclick="index.sortedDescKorHistoryScore()"
               >
                 <i class="up"></i>
               </button>
               <button
+                id="kor-down"
                 class="btn btn-primary"
                 onclick="index.sortedAsceKorHistoryScore()"
               >
@@ -92,10 +96,14 @@
         class="btn btn-success"
         onclick="index.addNum()"
       >
-        배경색 변경
+        새로 고침
       </button>
       <div>
-        <input type="text" class="form-control" style=" width : 10%" />
+        <input
+          type="text"
+          class="form-control"
+          style=" width : 10%; display : none;"
+        />
       </div>
     </div>
     <script src="index.js"></script>

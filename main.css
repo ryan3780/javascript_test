@@ -2,6 +2,11 @@
   color: red;
 }
 
+td,
+th {
+  text-align: center;
+}
+
 .where {
   display: block;
   margin: 25px 15px;
