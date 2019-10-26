@@ -44,7 +44,7 @@ function checkTime() {
   return;
 }
 
-checkTime();
+// checkTime();
 
 export function checkNoty() {
   const zero = document.getElementById("0");
