@@ -12,11 +12,11 @@ const mail = `Ele3780@naver.com`;
 
 // 공백 확인 + 이메일 형식이 맞는지 체크 하는 함수
 function checkingEmail(str) {
-  if (str.search(checkSpace) === -1 && checkEmail.test(str) === true) {
-    return console.log("사용 가능한 이메일 형식입니다 : " + str);
-  } else {
-    return console.log("사용 불가한 이메일입니다.");
-  }
+    if (str.search(checkSpace) === -1 && checkEmail.test(str) === true) {
+        return console.log("사용 가능한 이메일 형식입니다 : " + str);
+    } else {
+        return console.log("사용 불가한 이메일입니다.");
+    }
 }
 checkingEmail(mail);
 // console.log(mail.search(/\s/g));
@@ -33,12 +33,12 @@ console.log("----------------------------&&-----------------------------");
 
 // 비밀번호 공백 + 형식이 맞는지 체크 하는 함수
 function checkingPassword(pw) {
-  let result = passwordRegEx.test(pw);
-  if (result) {
-    console.log("사용 가능한 비밀번호 형식입니다 : " + pw);
-  } else {
-    console.log("사용 불가한 비밀번호 입니다.");
-  }
+    let result = passwordRegEx.test(pw);
+    if (result) {
+        console.log("사용 가능한 비밀번호 형식입니다 : " + pw);
+    } else {
+        console.log("사용 불가한 비밀번호 입니다.");
+    }
 }
 checkingPassword(`abcDe!@#`);
-checkingPassword(`abcDe!@#`);
+checkingPassword(`abcDe!@#`); // 한번 더 실행하면 사용 불가로....
