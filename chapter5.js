@@ -59,49 +59,53 @@ const userList = [
 ];
 
 function hideBtn(n) {
-  if (n === 1) {
-    engDownBtn.style.display = "none";
-    historyDownBtn.style.display = "none";
-    historyUpBtn.style.display = "none";
-    korHistoryDownBtn.style.display = "none";
-    korHistoryUpBtn.style.display = "none";
-  }
-  if (n === 2) {
-    engUpBtn.style.display = "none";
-    historyDownBtn.style.display = "none";
-    historyUpBtn.style.display = "none";
-    korHistoryDownBtn.style.display = "none";
-    korHistoryUpBtn.style.display = "none";
-  }
-  if (n === 3) {
-    engUpBtn.style.display = "none";
-    engDownBtn.style.display = "none";
-    historyDownBtn.style.display = "none";
-    korHistoryDownBtn.style.display = "none";
-    korHistoryUpBtn.style.display = "none";
-  }
-  if (n === 4) {
-    engUpBtn.style.display = "none";
-    engDownBtn.style.display = "none";
-    historyUpBtn.style.display = "none";
-    korHistoryDownBtn.style.display = "none";
-    korHistoryUpBtn.style.display = "none";
-  }
-  if (n === 5) {
-    engUpBtn.style.display = "none";
-    engDownBtn.style.display = "none";
-    historyUpBtn.style.display = "none";
-    historyDownBtn.style.display = "none";
-    korHistoryDownBtn.style.display = "none";
-  }
-  if (n === 6) {
-    engUpBtn.style.display = "none";
-    engDownBtn.style.display = "none";
-    historyUpBtn.style.display = "none";
-    historyDownBtn.style.display = "none";
-    korHistoryUpBtn.style.display = "none";
-  } else {
-    return "";
+  engUpBtn.style.display = "none";
+  engDownBtn.style.display = "none";
+  historyUpBtn.style.display = "none";
+  historyDownBtn.style.display = "none";
+  korHistoryUpBtn.style.display = "none";
+  korHistoryDownBtn.style.display = "none";
+
+  switch (n) {
+    case 1:
+      engUpBtn.style.display = "";
+
+      break;
+    case 2:
+      engUpBtn.style.display = "none";
+      historyDownBtn.style.display = "none";
+      historyUpBtn.style.display = "none";
+      korHistoryDownBtn.style.display = "none";
+      korHistoryUpBtn.style.display = "none";
+      break;
+    case 3:
+      engUpBtn.style.display = "none";
+      engDownBtn.style.display = "none";
+      historyDownBtn.style.display = "none";
+      korHistoryDownBtn.style.display = "none";
+      korHistoryUpBtn.style.display = "none";
+      break;
+    case 4:
+      engUpBtn.style.display = "none";
+      engDownBtn.style.display = "none";
+      historyUpBtn.style.display = "none";
+      korHistoryDownBtn.style.display = "none";
+      korHistoryUpBtn.style.display = "none";
+      break;
+    case 5:
+      engUpBtn.style.display = "none";
+      engDownBtn.style.display = "none";
+      historyUpBtn.style.display = "none";
+      historyDownBtn.style.display = "none";
+      korHistoryDownBtn.style.display = "none";
+      break;
+    case 6:
+      engUpBtn.style.display = "none";
+      engDownBtn.style.display = "none";
+      historyUpBtn.style.display = "none";
+      historyDownBtn.style.display = "none";
+      korHistoryUpBtn.style.display = "none";
+      break;
   }
 }
 

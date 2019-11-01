@@ -56,3 +56,20 @@ var reducer = function(value) {
 var initialValue = [];
 var result = reducer(votes);
 console.log(result); // { kim: 1, hong: 3, lee: 3 }
+
+// (function scope() {
+//   let a = 100;
+//   for (var i = 0; i < 10; i++) {
+//     let a = 200;
+//     console.log(a);
+//   }
+//   console.log(a);
+// })();
+
+function foo() {
+  name = 100;
+  var name;
+  console.log(name);
+}
+
+foo();
