@@ -47,6 +47,7 @@
 
 // console.log(matches);
 
+<<<<<<< HEAD
 var votes = { kim: 1, hong: 3, lee: 3 };
 var reducer = function(value) {
   for (const iterator in value) {
@@ -73,3 +74,18 @@ function foo() {
 }
 
 foo();
+=======
+// var votes = { kim: 1, hong: 3, lee: 3 };
+// var reducer = function(value) {
+//   for (const iterator in value) {
+//     console.log(iterator);
+//   }
+// };
+// var initialValue = [];
+// var result = reducer(votes);
+// console.log(result); // { kim: 1, hong: 3, lee: 3 }
+
+const str = 'Zbcdefg'
+
+console.log(str.split().sort().reverse().join(''))
+>>>>>>> 92299c35c99bd9c7fac05d7652800480794da8ef
