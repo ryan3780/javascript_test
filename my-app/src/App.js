@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import Counter from "./Counter";
+import Students from "./Students";
+import Clock from "./Clock";
 
 class App extends Component {
   render() {
-    return <Counter />;
+    return (
+      <div>
+        <Students />
+        <div>
+          <Clock />
+        </div>
+      </div>
+    );
   }
 }
 export default App;
