@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Table } from "reactstrap";
 import { Button } from "reactstrap";
 
 class Students extends Component {
   // 객체로 써야한다 !! state는 !!
+
   state = {
     students: [
       {
@@ -44,7 +46,7 @@ class Students extends Component {
       }
     ]
   };
-
+  // 내림차순으로 영어성적으로 정렬하는 함수
   compareByEngScoreDesc = () => {
     const { students } = this.state;
     this.setState({
@@ -52,62 +54,75 @@ class Students extends Component {
     });
   };
 
+  //영어 성적을 오름차순으로 정렬하는 함수
   compareByEngScoreAsce = () => {
     const { students } = this.state;
     this.setState({
       students: students.sort((a, b) => a.englishScore - b.englishScore)
     });
   };
-
+  //역사 성적을 내림차순으로 정렬하는 함수
   compareByhistoryScoreDesc = () => {
     const { students } = this.state;
     this.setState({
       students: students.sort((a, b) => b.historyScore - a.historyScore)
     });
   };
-
+  //역사 성적을 오름차순으로 정렬하는 함수
   compareByhistoryScoreAsce = () => {
     const { students } = this.state;
     this.setState({
       students: students.sort((a, b) => a.historyScore - b.historyScore)
     });
   };
-
+  //한국사 성적을 내림차순으로 정렬하는 함수
   compareByKorScoreDesc = () => {
     const { students } = this.state;
     this.setState({
       students: students.sort((a, b) => b.KorHistoryScore - a.KorHistoryScore)
     });
   };
-
-  compareByKorScoreAsce = () => {
+  //한국사 성적을 오름차순으로 정렬하는 함수
+  compareByKorScoreAsce = e => {
     const { students } = this.state;
     this.setState({
       students: students.sort((a, b) => a.KorHistoryScore - b.KorHistoryScore)
     });
   };
 
-  render() {
-    //비구조 할당? 괄호에 변수명 쓰는게 어떤 의미인가요?
+  compareById = () => {
     const { students } = this.state;
-    const List = students.map((list, i) => {
-      return (
-        <tr key={i}>
-          <td>{i + 1}</td>
-          <td>{list.name}</td>
-          <td>{list.id}</td>
-          <td>{list.englishScore}</td>
-          <td>{list.historyScore}</td>
-          <td>{list.KorHistoryScore}</td>
-          <td>
-            <Button>삭제</Button>
-          </td>
-        </tr>
-      );
+    this.setState({
+      students: students.sort((a, b) => a.id - b.id)
     });
+  };
+
+  removeList = id => {
+    const filteredStudents = this.state.students.filter(list => list.id !== id);
+    this.setState({
+      students: filteredStudents
+    });
+  };
+
+  render() {
+    const { students } = this.state;
+    const List = students.map((list, i) => (
+      <tr key={i}>
+        <td>{i + 1}</td>
+        <td>{list.name}</td>
+        <td>{list.id}</td>
+        <td>{list.englishScore}</td>
+        <td>{list.historyScore}</td>
+        <td>{list.KorHistoryScore}</td>
+        <td>
+          <Button onClick={() => this.removeList(list.id)}>삭제</Button>
+        </td>
+      </tr>
+    ));
+
     return (
       <div>
-        <table border="1">
+        <Table hover style={{ marginTop: "50px" }}>
           <tbody>
             <tr>
               <td>No</td>
@@ -115,7 +130,7 @@ class Students extends Component {
               <td>ID</td>
               <td>
                 영어성적
-                <Button color="danger" onClick={this.compareByEngScoreDesc}>
+                <Button color="danger" onClick={this.compareByEngScore}>
                   위
                 </Button>
                 <Button color="primary" onClick={this.compareByEngScoreAsce}>
@@ -143,10 +158,15 @@ class Students extends Component {
                   아래
                 </Button>
               </td>
+              <td>
+                <Button color="info" onClick={this.compareById}>
+                  정렬
+                </Button>
+              </td>
             </tr>
             {List}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }
