@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "test one",
+    "content": "Try Reactjs is awesome. Can't wait to learn more",
+    "date": "12-07-2017",
+    "slug": "Hello - React"
+  },
+  {
+    "id": 2,
+    "title": "test two",
+    "content": "Setup Reactjs is awesome. Can't wait to learn more",
+    "date": "13-07-2017",
+    "slug": "setup - React"
+  }
+]
