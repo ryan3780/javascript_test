@@ -14,6 +14,7 @@ class StudentsInfo extends Component {
     }
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
+  // onRemove가 어디서 부터 왔는지, 알려주는 확장이나 다른게 있나...?
   handleRemove = () => {
     const { info, onRemove } = this.props;
     onRemove(info.id);
@@ -27,9 +28,10 @@ class StudentsInfo extends Component {
       historyScore,
       KorHistoryScore
     } = this.props.info;
+    const { No } = this.props;
     return (
       <tr>
-        <td></td>
+        <td>{No}</td>
         <td>{name}</td>
         <td>{id}</td>
         <td>{englishScore}</td>

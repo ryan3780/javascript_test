@@ -27,15 +27,20 @@ class StudentsInfoList extends Component {
       this.props.onClick(5);
     } else if (buttonId === "korDesc") {
       this.props.onClick(6);
-    } else {
+    } else if (buttonId === "korAsce") {
       this.props.onClick(7);
     }
   };
 
   render() {
     const { score, onRemove } = this.props;
-    const list = score.map(data => (
-      <StudentsInfo key={data.id} info={data} onRemove={onRemove} />
+    const list = score.map((data, idx) => (
+      <StudentsInfo
+        key={data.id}
+        info={data}
+        onRemove={onRemove}
+        No={idx + 1}
+      />
     ));
     return (
       <div>
@@ -69,7 +74,7 @@ class StudentsInfoList extends Component {
                 <Button id="korDesc" color="danger" onClick={this.handleClick}>
                   위
                 </Button>
-                <Button color="primary" onClick={this.handleClick}>
+                <Button id="korAsce" color="primary" onClick={this.handleClick}>
                   아래
                 </Button>
               </td>
