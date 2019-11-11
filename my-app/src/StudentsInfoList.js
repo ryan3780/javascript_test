@@ -10,6 +10,7 @@ class StudentsInfoList extends Component {
     onRemove: () => console.warn("onRemove not defined")
   };
 
+  // 정렬하는 기능인데...onClick()의 파라미터를 이쁘게 줄 방법은 없나...?
   handleClick = e => {
     console.log(e.target.id);
     const buttonId = e.target.id;

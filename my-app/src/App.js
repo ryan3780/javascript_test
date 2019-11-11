@@ -47,6 +47,7 @@ class App extends Component {
     ]
   };
 
+  // 정렬하는 기능을 1개의 함수로 합쳤지만, 매개변수를 무언가 이쁜걸로 설정하고 싶은데...
   compareButton = buttonId => {
     const { students } = this.state;
     // 정렬 버튼을 누르면 App.js에서 바로 아래에 있는 콘솔이 찍힌다. 다른 조건은 안그런데...왜그러지???
@@ -99,8 +100,9 @@ class App extends Component {
             {TestData.map((data, index) => {
               return (
                 <div key={index}>
-                  <h1>{data.title}</h1>
-                  <p>{data.content}</p>
+                  <h1 style={{ color: "blue" }}>Dummy JSON파일 내용</h1>
+                  <h2 style={{ color: "green" }}>{data.title}</h2>
+                  <h3 style={{ color: "#008080" }}>{data.content}</h3>
                 </div>
               );
             })}
