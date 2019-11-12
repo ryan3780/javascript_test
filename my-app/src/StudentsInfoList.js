@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import StudentsInfo from "./StudentsInfo";
+import StudentsInfo from "./StudentInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from "reactstrap";
 import { Button } from "reactstrap";

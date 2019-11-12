@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import { Table } from "reactstrap";
 import { Button } from "reactstrap";
 
-class StudentsInfo extends Component {
+class StudentInfo extends Component {
   static defaultProps = {
     info: {
       name: "Joker",
@@ -14,7 +14,7 @@ class StudentsInfo extends Component {
     }
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
-  // onRemove가 어디서 부터 왔는지, 알려주는 확장이나 다른게 있나...?
+  // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
   handleRemove = () => {
     const { info, onRemove } = this.props;
     onRemove(info.id);
@@ -45,6 +45,6 @@ class StudentsInfo extends Component {
   }
 }
 
-export default StudentsInfo;
+export default StudentInfo;
 
 // 이 컴포넌트에 수정을 넣는게 Velopert의 방식 // 왜 그럴까???
