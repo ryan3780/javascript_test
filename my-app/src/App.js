@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Clock from "./Clock";
-// dummy JSON 파일 읽어와서 화면에 나타내기
-import TestData from "./test.json";
 import StudentsInfoList from "./StudentsInfoList";
 
 class App extends Component {
@@ -96,17 +94,6 @@ class App extends Component {
         <Row style={{ textAlign: "center" }}>
           <Col md={{ size: 10, offset: 1 }}>
             <Clock />
-            {/*  dummy JSON 파일 읽어와서 화면에 나타내기 */}
-            {TestData.map((data, index) => {
-              return (
-                <div key={index}>
-                  <h1 style={{ color: "blue" }}>Dummy JSON파일 내용</h1>
-                  <h2 style={{ color: "green" }}>{data.title}</h2>
-                  <h3 style={{ color: "#008080" }}>{data.content}</h3>
-                </div>
-              );
-            })}
-            {/* {JSON.stringify(students)} */}
             <StudentsInfoList
               score={this.state.students}
               onClick={this.compareButton}

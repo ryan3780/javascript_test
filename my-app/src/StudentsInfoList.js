@@ -47,7 +47,6 @@ class StudentsInfoList extends Component {
         <Table hover style={{ marginTop: "50px" }}>
           <tbody>
             <tr>
-              {/* No에 차례대로 1,2,3,4,5 숫자를 부여 하고 싶은데 어떻게 할까...? Props로 안되나...? */}
               <td>No</td>
               <td>Name</td>
               <td>ID</td>
