@@ -77,9 +77,15 @@ class App extends Component {
     });
   };
 
-  updateList = () => {
+  updateList = (id, data) => {
     const { students } = this.state;
     console.log("from app.js");
+    console.log(data);
+    this.setState({
+      students: students.map(info =>
+        id === info.id ? { ...info, ...data } : info
+      )
+    });
   };
 
   render() {

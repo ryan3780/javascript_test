@@ -6,11 +6,10 @@ import { Button } from "reactstrap";
 class Student extends Component {
   state = {
     editing: false,
-    score: {
-      english: "",
-      history: "",
-      math: ""
-    }
+
+    english: "",
+    history: "",
+    math: ""
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
   // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
@@ -25,6 +24,30 @@ class Student extends Component {
       editing: !editing
     });
   };
+
+  handleChange = e => {
+    console.log(e.target);
+    const { value } = e.target;
+    this.setState({
+      score: {
+        english: value
+      }
+    });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { info, onUpdate } = this.props;
+    if (!prevState.editing && this.state.editing) {
+      this.setState({
+        score: info.score
+      });
+    }
+    if (prevState.editing && !this.state.editing) {
+      onUpdate(info.id, {
+        score: this.state.score
+      });
+    }
+  }
 
   render() {
     const { name, id, score } = this.props.info;
@@ -42,16 +65,31 @@ class Student extends Component {
           <td>{name}</td>
           <td>{id}</td>
           <td>
-            <input style={input} value={this.state.score.english} />
+            <input
+              name="english"
+              style={input}
+              value={this.state.english}
+              onChange={this.handleChange}
+            />
           </td>
           <td>
-            <input style={input} value={this.state.score.history} />
+            <input
+              name="history"
+              style={input}
+              value={this.state.score.history}
+              onChange={this.handleChange}
+            />
           </td>
           <td>
-            <input style={input} value={this.state.score.math} />
+            <input
+              name="math"
+              style={input}
+              value={this.state.score.math}
+              onChange={this.handleChange}
+            />
           </td>
           <td>
-            <Button>완료</Button>
+            <Button onClick={this.handleToglleEdit}>완료</Button>
           </td>
           <td>
             <Button onClick={this.handleRemove}>삭제</Button>
@@ -59,6 +97,7 @@ class Student extends Component {
         </tr>
       );
     }
+
     return (
       <tr>
         <td>{No}</td>
