@@ -6,11 +6,9 @@ import { Button } from "reactstrap";
 class Student extends Component {
   state = {
     editing: false,
-    score: {
-      english: "",
-      history: "",
-      math: ""
-    }
+    english: "",
+    history: "",
+    math: ""
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
   // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
@@ -26,33 +24,42 @@ class Student extends Component {
     });
   };
 
+  // mutiple input을 핸들링하는 방법이 이것 말고는 없나??
   handleChange = e => {
     const { name, value } = e.target;
-    console.log(name);
-    console.log(value);
+    // console.log(name);
+    // console.log(value);
     this.setState({
-      score: {
-        [name]: value
-      }
+      [name]: value
     });
   };
 
   componentDidUpdate(prevProps, prevState) {
     const { info, onUpdate } = this.props;
+    const { english, history, math } = info.score;
+    // 콘솔 찍으면 왜 2번씩 찍히는 거지???
+    // console.log(info.score);
     if (!prevState.editing && this.state.editing) {
+      // 위에 state와 setstate 형식이 맞아야 ...값이 제대로 나오는 건가;;
       this.setState({
-        score: info.score
+        english: english,
+        history: history,
+        math: math
       });
     }
     if (prevState.editing && !this.state.editing) {
       onUpdate(info.id, {
-        score: this.state.score
+        score: {
+          english: this.state.english,
+          history: this.state.history,
+          math: this.state.math
+        }
       });
     }
   }
 
   render() {
-    const { name, id, score } = this.props.info;
+    const { name, id } = this.props.info;
     const { No } = this.props;
     const { editing } = this.state;
     const input = {
@@ -70,7 +77,7 @@ class Student extends Component {
             <input
               name="english"
               style={input}
-              value={this.state.score.english || ""}
+              value={this.state.english || ""}
               onChange={this.handleChange}
             />
           </td>
@@ -78,7 +85,7 @@ class Student extends Component {
             <input
               name="history"
               style={input}
-              value={this.state.score.history || ""}
+              value={this.state.history || ""}
               onChange={this.handleChange}
             />
           </td>
@@ -86,7 +93,7 @@ class Student extends Component {
             <input
               name="math"
               style={input}
-              value={this.state.score.math || ""}
+              value={this.state.math || ""}
               onChange={this.handleChange}
             />
           </td>
@@ -99,7 +106,7 @@ class Student extends Component {
         </tr>
       );
     }
-
+    const { score } = this.props.info;
     return (
       <tr>
         <td>{No}</td>
