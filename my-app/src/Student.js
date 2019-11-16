@@ -6,10 +6,11 @@ import { Button } from "reactstrap";
 class Student extends Component {
   state = {
     editing: false,
-
-    english: "",
-    history: "",
-    math: ""
+    score: {
+      english: "",
+      history: "",
+      math: ""
+    }
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
   // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
@@ -26,11 +27,12 @@ class Student extends Component {
   };
 
   handleChange = e => {
-    console.log(e.target);
-    const { value } = e.target;
+    const { name, value } = e.target;
+    console.log(name);
+    console.log(value);
     this.setState({
       score: {
-        english: value
+        [name]: value
       }
     });
   };
@@ -68,7 +70,7 @@ class Student extends Component {
             <input
               name="english"
               style={input}
-              value={this.state.english}
+              value={this.state.score.english || ""}
               onChange={this.handleChange}
             />
           </td>
@@ -76,7 +78,7 @@ class Student extends Component {
             <input
               name="history"
               style={input}
-              value={this.state.score.history}
+              value={this.state.score.history || ""}
               onChange={this.handleChange}
             />
           </td>
@@ -84,7 +86,7 @@ class Student extends Component {
             <input
               name="math"
               style={input}
-              value={this.state.score.math}
+              value={this.state.score.math || ""}
               onChange={this.handleChange}
             />
           </td>

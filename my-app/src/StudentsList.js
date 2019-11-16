@@ -26,10 +26,10 @@ class StudentsList extends Component {
 
   render() {
     const { students, onRemove, onUpdate } = this.props;
-    const list = students.map((student, idx) => (
+    const list = students.map((info, idx) => (
       <Student
-        key={student.id}
-        info={student}
+        key={info.id}
+        info={info}
         onRemove={onRemove}
         onUpdate={onUpdate}
         No={idx + 1}

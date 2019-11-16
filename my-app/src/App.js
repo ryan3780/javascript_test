@@ -57,6 +57,7 @@ class App extends Component {
 
   sortList = (key, order) => {
     const { students } = this.state;
+    console.log(students);
     if (key === "re") {
       this.setState({
         students: students.sort((a, b) => (order ? a.id - b.id : b.id - a.id))
