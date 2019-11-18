@@ -12,6 +12,7 @@ class StudentsList extends Component {
     let key = "english";
     let order = true;
 
+    //.split 문자열을 잘라서 새로운 배열로 반환한다
     const ids = buttonId.split("-", 2);
     console.log(ids);
 

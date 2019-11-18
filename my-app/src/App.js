@@ -57,7 +57,11 @@ class App extends Component {
 
   sortList = (key, order) => {
     const { students } = this.state;
-    console.log(students);
+    // order === true & false
+    console.log(order);
+    // console.log(students);
+    //key는 id 값 중 하이픈'-' 앞을 가리킨다
+    console.log(key);
     if (key === "re") {
       this.setState({
         students: students.sort((a, b) => (order ? a.id - b.id : b.id - a.id))
@@ -65,6 +69,7 @@ class App extends Component {
     } else {
       this.setState({
         students: students.sort((a, b) =>
+          //.score[key] = 객체의 프로퍼티를 뜻함
           order ? b.score[key] - a.score[key] : a.score[key] - b.score[key]
         )
       });
@@ -81,12 +86,19 @@ class App extends Component {
   updateList = (id, data) => {
     const { students } = this.state;
     console.log("from app.js");
-    console.log(data);
-    this.setState({
-      students: students.map(info =>
-        id === info.id ? { ...info, ...data } : info
-      )
-    });
+    // console.log(typeof data.score.english);
+    const { english, history, math } = data.score;
+    // console.log(isNaN(english));
+    //type 바꾸는 것을 여기서 해야할까, 다른 컴포넌트에서 해야 할까?? 어떤게 관리 하기 쉬운거지???
+    if (isNaN(english) || isNaN(history) || isNaN(math)) {
+      alert("숫자만 입력 가능해요");
+    } else {
+      this.setState({
+        students: students.map(info =>
+          id === info.id ? { ...info, ...data } : info
+        )
+      });
+    }
   };
 
   render() {

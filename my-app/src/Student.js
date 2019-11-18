@@ -27,11 +27,19 @@ class Student extends Component {
   // mutiple input을 핸들링하는 방법이 이것 말고는 없나??
   handleChange = e => {
     const { name, value } = e.target;
-    // console.log(name);
-    // console.log(value);
-    this.setState({
-      [name]: value
-    });
+    const Pattern = /^\d{1,3}$/y;
+    console.log(name);
+    Pattern.test(value) && value < 101
+      ? (document.getElementById("noty").innerText = ` ok`) &&
+        (document.getElementById("noty").style.color = "Blue") &&
+        this.setState({
+          [name]: value
+        })
+      : (document.getElementById("noty").innerText = ` No`) &&
+        (document.getElementById("noty").style.color = "Red") &&
+        this.setState({
+          [name]: ""
+        });
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -50,16 +58,16 @@ class Student extends Component {
     if (prevState.editing && !this.state.editing) {
       onUpdate(info.id, {
         score: {
-          english: this.state.english,
-          history: this.state.history,
-          math: this.state.math
+          english: parseInt(this.state.english),
+          history: parseInt(this.state.history),
+          math: parseInt(this.state.math)
         }
       });
     }
   }
 
   render() {
-    const { name, id } = this.props.info;
+    const { name, id, score } = this.props.info;
     const { No } = this.props;
     const { editing } = this.state;
     const input = {
@@ -75,17 +83,19 @@ class Student extends Component {
           <td>{id}</td>
           <td>
             <input
+              id="english"
               name="english"
               style={input}
-              value={this.state.english || ""}
+              value={this.state.english}
               onChange={this.handleChange}
             />
+            <span id="noty"> </span>
           </td>
           <td>
             <input
               name="history"
               style={input}
-              value={this.state.history || ""}
+              value={this.state.history}
               onChange={this.handleChange}
             />
           </td>
@@ -93,7 +103,7 @@ class Student extends Component {
             <input
               name="math"
               style={input}
-              value={this.state.math || ""}
+              value={this.state.math}
               onChange={this.handleChange}
             />
           </td>
@@ -106,7 +116,7 @@ class Student extends Component {
         </tr>
       );
     }
-    const { score } = this.props.info;
+
     return (
       <tr>
         <td>{No}</td>
