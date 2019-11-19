@@ -5,7 +5,7 @@ import { Table } from "reactstrap";
 import { Button } from "reactstrap";
 
 class StudentsList extends Component {
-  handleClick = e => {
+  handleSorting = e => {
     const buttonId = e.target.id;
     const { onSort } = this.props;
 
@@ -48,7 +48,7 @@ class StudentsList extends Component {
                 <Button
                   id="english-desc"
                   color="primary"
-                  onClick={this.handleClick}
+                  onClick={this.handleSorting}
                 >
                   영어
                 </Button>
@@ -57,7 +57,7 @@ class StudentsList extends Component {
                 <Button
                   id="history-desc"
                   color="primary"
-                  onClick={this.handleClick}
+                  onClick={this.handleSorting}
                 >
                   역사
                 </Button>
@@ -66,14 +66,14 @@ class StudentsList extends Component {
                 <Button
                   id="math-desc"
                   color="primary"
-                  onClick={this.handleClick}
+                  onClick={this.handleSorting}
                 >
                   수학
                 </Button>
               </td>
               <td></td>
               <td>
-                <Button id="re-desc" color="info" onClick={this.handleClick}>
+                <Button id="re-desc" color="info" onClick={this.handleSorting}>
                   정렬
                 </Button>
               </td>

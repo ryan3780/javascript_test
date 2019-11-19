@@ -6,9 +6,16 @@ import { Button } from "reactstrap";
 class Student extends Component {
   state = {
     editing: false,
-    english: "",
-    history: "",
-    math: ""
+    id: this.props.info.id,
+    score: this.props.info.score,
+    englishIsOK: "",
+    historyIsOK: "",
+    mathIsOK: "",
+    color: {
+      english: "",
+      history: "",
+      math: ""
+    }
   };
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
   // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
@@ -28,84 +35,98 @@ class Student extends Component {
   handleChange = e => {
     const { name, value } = e.target;
     const Pattern = /^\d{1,3}$/y;
-    console.log(name);
-    Pattern.test(value) && value < 101
-      ? (document.getElementById("noty").innerText = ` ok`) &&
-        (document.getElementById("noty").style.color = "Blue") &&
-        this.setState({
-          [name]: value
-        })
-      : (document.getElementById("noty").innerText = ` No`) &&
-        (document.getElementById("noty").style.color = "Red") &&
-        this.setState({
-          [name]: ""
-        });
+
+    // console.log(name);
+
+    let msg = " no";
+    let modifiedVal = "";
+    let color = "red";
+    if (Pattern.test(value) && value <= 100) {
+      msg = " ok";
+      modifiedVal = parseInt(value);
+      color = "blue";
+    }
+    this.setState({
+      score: { ...this.state.score, [name]: modifiedVal },
+      [name + "IsOK"]: msg,
+      color: { ...this.state.color, [name]: color }
+    });
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { info, onUpdate } = this.props;
-    const { english, history, math } = info.score;
+    const { onUpdate } = this.props;
+    const { score } = this.state;
     // 콘솔 찍으면 왜 2번씩 찍히는 거지???
-    // console.log(info.score);
+    // console.log(this.props.info.score);
     if (!prevState.editing && this.state.editing) {
       // 위에 state와 setstate 형식이 맞아야 ...값이 제대로 나오는 건가;;
       this.setState({
-        english: english,
-        history: history,
-        math: math
+        score
       });
     }
     if (prevState.editing && !this.state.editing) {
-      onUpdate(info.id, {
+      console.log("english", this.state.score.english);
+
+      onUpdate(this.props.info.id, {
         score: {
-          english: parseInt(this.state.english),
-          history: parseInt(this.state.history),
-          math: parseInt(this.state.math)
+          english: this.state.score.english,
+          history: this.state.score.history,
+          math: this.state.score.math
         }
       });
     }
   }
 
   render() {
-    const { name, id, score } = this.props.info;
+    const { name, id } = this.props.info;
     const { No } = this.props;
-    const { editing } = this.state;
+    const { editing, score, span } = this.state;
+
     const input = {
       width: "100px",
       height: "30px",
       boder: "1px solid black"
     };
+
     if (editing) {
       return (
         <tr>
           <td>{No}</td>
           <td>{name}</td>
           <td>{id}</td>
-          <td>
+          <td id="english">
             <input
               id="english"
               name="english"
               style={input}
-              value={this.state.english}
+              value={this.state.score.english}
               onChange={this.handleChange}
             />
-            <span id="noty"> </span>
+            <span style={{ color: this.state.color.english }}>
+              {this.state.englishIsOK}
+            </span>
           </td>
           <td>
             <input
               name="history"
               style={input}
-              value={this.state.history}
+              value={this.state.score.history}
               onChange={this.handleChange}
             />
+            <span style={{ color: this.state.color.history }}>
+              {this.state.historyIsOK}
+            </span>
           </td>
           <td>
             <input
               name="math"
               style={input}
-              value={this.state.math}
+              value={this.state.score.math}
               onChange={this.handleChange}
             />
+            <span style={{ color: this.state.color.math }}>
+              {this.state.mathIsOK}
+            </span>
           </td>
           <td>
             <Button onClick={this.handleToglleEdit}>완료</Button>
