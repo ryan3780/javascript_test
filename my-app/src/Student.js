@@ -65,13 +65,13 @@ class Student extends Component {
       });
     }
     if (prevState.editing && !this.state.editing) {
-      console.log("english", this.state.score.english);
+      // console.log("english", this.state.score.english);
 
       onUpdate(this.props.info.id, {
         score: {
-          english: this.state.score.english,
-          history: this.state.score.history,
-          math: this.state.score.math
+          english: parseInt(this.state.score.english),
+          history: parseInt(this.state.score.history),
+          math: parseInt(this.state.score.math)
         }
       });
     }
@@ -80,7 +80,7 @@ class Student extends Component {
   render() {
     const { name, id } = this.props.info;
     const { No } = this.props;
-    const { editing, score, span } = this.state;
+    const { editing, score } = this.state;
 
     const input = {
       width: "100px",

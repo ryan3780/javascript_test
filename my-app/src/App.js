@@ -85,11 +85,10 @@ class App extends Component {
 
   updateList = (id, data) => {
     const { students } = this.state;
-    console.log("from app.js");
-    console.log(data);
-    // console.log(isNaN(english));
-    //type 바꾸는 것을 여기서 해야할까, 다른 컴포넌트에서 해야 할까?? 어떤게 관리 하기 쉬운거지???
 
+    console.log("from app.js");
+    console.log(data.score);
+    //type 바꾸는 것을 여기서 해야할까, 다른 컴포넌트에서 해야 할까?? 어떤게 관리 하기 쉬운거지???
     this.setState({
       students: students.map(info =>
         id === info.id ? { ...info, data } : info

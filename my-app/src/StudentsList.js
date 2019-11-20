@@ -81,6 +81,9 @@ class StudentsList extends Component {
             {list}
           </tbody>
         </Table>
+        <div>
+          <Button color="success">입력</Button>
+        </div>
       </div>
     );
   }
