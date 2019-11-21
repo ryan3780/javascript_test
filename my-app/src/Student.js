@@ -38,7 +38,7 @@ class Student extends Component {
     const Pattern = /^\d{1,3}$/y;
 
     // console.log(name);
-    console.log(value);
+    // console.log(value);
     let msg = " no";
     let modifiedVal = "";
     let color = "red";
@@ -86,7 +86,8 @@ class Student extends Component {
     const input = {
       width: "100px",
       height: "30px",
-      boder: "1px solid black"
+      boder: "1px solid black",
+      textAlign: "center"
     };
 
     if (editing) {
@@ -133,7 +134,9 @@ class Student extends Component {
             <Button onClick={this.handleToglleEdit}>완료</Button>
           </td>
           <td>
-            <Button onClick={this.handleRemove}>삭제</Button>
+            <Button color="danger" onClick={this.handleRemove}>
+              삭제
+            </Button>
           </td>
         </tr>
       );
@@ -153,7 +156,9 @@ class Student extends Component {
           </Button>
         </td>
         <td>
-          <Button onClick={this.handleRemove}>삭제</Button>
+          <Button color="danger" onClick={this.handleRemove}>
+            삭제
+          </Button>
         </td>
       </tr>
     );

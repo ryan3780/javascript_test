@@ -5,6 +5,8 @@ import StudentsList from "./StudentsList";
 import AddStudent from "./AddStudent";
 
 class App extends Component {
+  //이거 왜 되는거지??
+  id = "2019000" + 6;
   state = {
     students: [
       {
@@ -59,10 +61,10 @@ class App extends Component {
   sortList = (key, order) => {
     const { students } = this.state;
     // order === true & false
-    console.log(order);
+    // console.log(order);
     // console.log(students);
     //key는 id 값 중 하이픈'-' 앞을 가리킨다
-    console.log(key);
+    // console.log(key);
     if (key === "re") {
       this.setState({
         students: students.sort((a, b) => (order ? a.id - b.id : b.id - a.id))
@@ -87,14 +89,15 @@ class App extends Component {
   updateList = (id, data) => {
     const { students } = this.state;
     console.log("from app.js");
-    console.log(data.score);
-    //type 바꾸는 것을 여기서 해야할까, 다른 컴포넌트에서 해야 할까?? 어떤게 관리 하기 쉬운거지???
+    console.log(data);
     this.setState({
       students: students.map(info =>
         id === info.id ? { ...info, data } : info
       )
     });
   };
+
+  // data가 넘어 왔지만, 이상하게 찍힌다. 마치 자신에게 필요한 데이터 형식만 찾아서 사용하는?
   addList = data => {
     const { students } = this.state;
     console.log(data);

@@ -23,7 +23,7 @@ class StudentsList extends Component {
 
     //.split 문자열을 잘라서 새로운 배열로 반환한다
     const ids = buttonId.split("-", 2);
-    console.log(ids);
+    // console.log(ids);
 
     key = ids[0];
     order = ids[1] === "asc" ? true : false;
