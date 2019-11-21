@@ -17,6 +17,7 @@ class Student extends Component {
       math: ""
     }
   };
+
   // 삭제 버튼은 여기에 존재하니, 여기까지 Props를 받아서 사용해야 하나???
   // onRemove가 어디서 부터 왔는지, 알려주는 확장(extensions)이나 다른게 있나...?
   handleRemove = () => {
@@ -37,7 +38,7 @@ class Student extends Component {
     const Pattern = /^\d{1,3}$/y;
 
     // console.log(name);
-
+    console.log(value);
     let msg = " no";
     let modifiedVal = "";
     let color = "red";

@@ -5,6 +5,15 @@ import { Table } from "reactstrap";
 import { Button } from "reactstrap";
 
 class StudentsList extends Component {
+  state = {
+    name: "",
+    id: "",
+    score: {
+      english: "",
+      history: "",
+      math: ""
+    }
+  };
   handleSorting = e => {
     const buttonId = e.target.id;
     const { onSort } = this.props;
@@ -36,6 +45,7 @@ class StudentsList extends Component {
         No={idx + 1}
       />
     ));
+
     return (
       <div>
         <Table hover style={{ marginTop: "50px" }}>
@@ -81,9 +91,6 @@ class StudentsList extends Component {
             {list}
           </tbody>
         </Table>
-        <div>
-          <Button color="success">입력</Button>
-        </div>
       </div>
     );
   }
