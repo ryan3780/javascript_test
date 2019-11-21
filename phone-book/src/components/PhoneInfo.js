@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
 class PhoneInfo extends Component {
-  static defaultProps = {
-    info: {
-      name: "이름",
-      phone: "010-0000-0000",
-      id: 0
-    }
-  };
-
   state = {
     // 우리는 수정 버튼을 눌렀을 떄 editing 값을 true 로 설정해줄것입니다.
     // 이 값이 true 일 때에는, 기존에 텍스트 형태로 보여주던 값들을
